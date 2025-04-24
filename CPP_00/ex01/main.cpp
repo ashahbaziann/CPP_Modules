@@ -18,14 +18,21 @@ int main()
         {
             p.displayContacts();
             int index;
-            std::cout << "Enter the index of the contact: ";
-            std::cin >> index;
-            if (std::cin.fail() || (index < 0 || index > 7)) {
-                std::cin.clear();
-                std::cin.ignore(10000, '\n');
-                std::cout << "Invalid input, try again." << std::endl;
-                continue;
+            do
+            {
+                std::cout << "Enter the index of the contact: ";
+                std::cin >> index;
+                if (std::cin.fail()) {
+                    std::cin.clear();
+                    std::cin.ignore(10000, '\n');
+                    std::cout << "Invalid input, try again." << std::endl;
+                    continue;
+                }
+                if (index <= 7 && index >= 0)
+                    break ;
+                std::cout << "Index is out of range, try again" << std::endl;
             }
+            while (true);
             p.searchContact(index);
             std::cin.clear();
 			std::getline(std::cin, input);

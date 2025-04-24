@@ -4,6 +4,25 @@ PhoneBook::PhoneBook()
     currentIndex = 0;
     contactCount = 0;
 }
+static int      is_valid_number(std::string number)
+{
+        int     i;
+
+        i = 0;
+        while (number[i])
+        {
+                if (number[i] == ' ')
+                {
+                        i++;
+                        continue;
+                }
+                if (!std::isdigit(number[i]))
+                        return (0);
+                i++;
+        }
+        return (1);
+}
+
 void PhoneBook::addContact()
 {
     std::string input;
@@ -20,8 +39,14 @@ void PhoneBook::addContact()
     std::getline(std::cin, input);
     contacts[currentIndex].setNickName(input);
 
-    std::cout << "Phone number: ";
-    std::getline(std::cin, input);
+    do
+    {
+        std::cout << "Phone Number: ";
+        std::getline(std::cin, input);
+        if (is_valid_number(input))
+            break;
+        std::cout << "Please input a valid number" << std::endl;
+    } while (!is_valid_number(input));
     contacts[currentIndex].setPhoneNumber(input);
 
     std::cout << "Darkest secret: ";
