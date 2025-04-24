@@ -1,4 +1,5 @@
 #include "PhoneBook.hpp"
+
 PhoneBook::PhoneBook()
 {
     currentIndex = 0;
@@ -75,7 +76,6 @@ Contact PhoneBook::getDarkestSecret(int index){
     return contacts[index];
 }
 
-
 void PhoneBook::searchContact(int index)
 {
     std::cout << "First name: " << contacts[index].getFirstName() << std::endl;
@@ -84,6 +84,7 @@ void PhoneBook::searchContact(int index)
     std::cout << "Phone number: " << contacts[index].getPhoneNumber() << std::endl;
     std::cout << "Darkest secret: " << contacts[index].getDarkestSecret() << std::endl;
 }
+
 std::string formatField(const std::string &src) {
     std::string res = src;
 	if (res.length() > 10)
