@@ -22,6 +22,6 @@ void Zombie::setName(std::string name){
     this -> name = name;
 }
 
-std::string Zombie::getName(void){
+std::string Zombie::getName(void) const{
     return this->name;
 }

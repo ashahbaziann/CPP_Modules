@@ -13,7 +13,7 @@ public:
     ~Zombie();
     void announce( void );  
     void setName(std::string name);
-    std::string getName(void);
+    std::string getName(void) const;
 };
 Zombie* zombieHorde( int N, std::string name );
 #endif
