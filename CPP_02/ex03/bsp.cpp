@@ -15,15 +15,11 @@ bool bsp( Point const a, Point const b, Point const c, Point const point){
     float ABC = area(a, b, c);
     float PAB = area(a, b, point);
     float PAC = area(a, c, point);
-    float PCB = area(c, b, point);
-    std::cout << "PAB" << PAB << std::endl;
-    std::cout << "Pac" << PAC << std::endl;
-    std::cout << "Pcb" << PCB << std::endl;
-    std::cout << "abc" << ABC << std::endl;
+    float PCB = area(b, c, point);
 
-    if (ABC == PAB + PAC + PCB) {
+    if (PAB == 0.0f || PAC == 0.0f || PCB == 0.0f)
+        return false;
+    if (ABC == PAB + PAC + PCB)
         return true;
-    }
-    
     return false;
 }
