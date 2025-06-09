@@ -4,7 +4,7 @@
 #include <iostream>
 
 class ClapTrap{
-protected:
+    protected:
     std::string name;
     int hitPoints;//health of claptrap
     int energyPoints;
@@ -24,6 +24,7 @@ public:
     int get_hitPoints() const;
     int get_energyPoints() const;
     int get_attackDamage() const;
+    
     void set_name(const std::string name);
     void set_hitPoints(int hitPoints);
     void set_energyPoints(int energy_points);

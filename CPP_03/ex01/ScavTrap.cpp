@@ -1,17 +1,17 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(): ClapTrap("Default"){
+    std::cout << "ScavTrap Default constructor is called" << std::endl;
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
-    std::cout << "ScavTrap Default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string& name): ClapTrap(name){
+    std::cout << "ScavTrap parametric constructor is called" << std::endl;
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
-    std::cout << "ScavTrap Init name constructor" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other){
@@ -19,14 +19,9 @@ ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other){
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap& other){
+    std::cout << "ScavTrap Copy assignment is called" << std::endl;
     if (this != &other)
-    {
-        std::cout << "ScavTrap Copy assignment is called" << std::endl;
-        this->set_name(other.name);
-        this->set_hitPoints(other.hitPoints);
-        this->set_energyPoints(other.energyPoints);
-        this->set_attackDamage(other.attackDamage);
-    }
+        ClapTrap::operator=(other);
     return (*this);
 }
 
@@ -36,4 +31,14 @@ ScavTrap::~ScavTrap(){
 
 void ScavTrap::guardGate(){
     std::cout << "ScavTrap "<< name << " is now in the Gate keeper mode" << std::endl;
+}
+
+void ScavTrap::attack(const std::string& target){
+    if (this->energyPoints && this->hitPoints)
+    {
+        std::cout << "ScavTrap " << this->getName() << " attacks " << target <<", causing "<< this->attackDamage << " points of damage!" << std::endl;
+        this->set_energyPoints(this->energyPoints - 1);
+    }
+    else
+        std::cout << "ScavTrap "<< name << " has no energy or hit points left to attack!" << std::endl;
 }

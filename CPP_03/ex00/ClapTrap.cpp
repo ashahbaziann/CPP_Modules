@@ -1,11 +1,11 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(): name("Default"), hitPoints(10), energyPoints(10), attackDamage(0){
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "Default constructor is called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name): name(name),hitPoints(10), energyPoints(10), attackDamage(0){
-    std::cout << "Init name constructor" << std::endl;
+    std::cout << "ClapTrap parametric constructor is called called" << std::endl;
 }
 
 std::string const ClapTrap::getName() const{

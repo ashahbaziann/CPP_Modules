@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap(){
+ScavTrap::ScavTrap(): ClapTrap("Default ScavTrap"){
     std::cout << "ScavTrap Default constructor is called" << std::endl;
     hitPoints = 100;
     energyPoints = 50;
@@ -34,7 +34,7 @@ void ScavTrap::guardGate(){
 }
 
 void ScavTrap::attack(const std::string& target){
-    if (this->energyPoints && this->hitPoints)
+    if (this->energyPoints > 0 && this->hitPoints > 0)
     {
         std::cout << "ScavTrap " << this->getName() << " attacks " << target <<", causing "<< this->attackDamage << " points of damage!" << std::endl;
         this->set_energyPoints(this->energyPoints - 1);
