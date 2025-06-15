@@ -21,21 +21,21 @@ Fixed &Fixed::operator=(const Fixed& other){
 }
 
 Fixed::Fixed(const int integer){
-    this->setRawBits(integer * (1 << this->frctnl_bits));
+    this->setRawBits(integer * (1 << this->frctnlBits));
 }
 
 Fixed::Fixed(const float floatPoint){
-    this->setRawBits(roundf(floatPoint * (1 << this->frctnl_bits)));
+    this->setRawBits(roundf(floatPoint * (1 << this->frctnlBits)));
 }
 
 Fixed::~Fixed(){}
 
 int Fixed::toInt(void) const{
-    return this->value / (1 << this->frctnl_bits);
+    return this->value / (1 << this->frctnlBits);
 }
 
 float Fixed::toFloat(void) const{
-    return float(this ->value) / (1 << this->frctnl_bits) ;
+    return float(this ->value) / (1 << this->frctnlBits) ;
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)

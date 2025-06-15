@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 
 static int replace(char **argv, std::string &str)
@@ -32,15 +33,15 @@ int main(int argc, char **argv)
 {
     std::ifstream   infile;
     std::string     str;
-    char            c;
 
     if (argc != 4)
         return (std::cout << "Invalid arguments!" << std::endl, 1);
     infile.open(argv[1]);
     if (infile.fail())
         return (std::cout << "Invalid file!" << std::endl, 1);
-    while (!infile.eof() && infile >> std::noskipws >> c)
-        str += c;
+    std::stringstream buffer;
+    buffer << infile.rdbuf();
+    str = buffer.str();
     infile.close();
     return (replace(argv, str));
 }

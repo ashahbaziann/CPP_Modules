@@ -31,4 +31,6 @@ void Harl::complain(std::string level){
             return ;
         }
     }
+    std::cout << "Invalid arguments!" << std::endl;
+    return ;
 }

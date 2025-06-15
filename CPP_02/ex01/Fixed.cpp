@@ -14,7 +14,7 @@ void Fixed::setRawBits(int const raw){
 
 Fixed::Fixed(const Fixed& other){
     std::cout << "Copy constructor is called" << std::endl;
-    this->setRawBits(other.getRawBits()); //*this = other;
+    this->setRawBits(other.getRawBits());
 }
 
 Fixed &Fixed::operator=(const Fixed& other){
@@ -26,12 +26,12 @@ Fixed &Fixed::operator=(const Fixed& other){
 
 Fixed::Fixed(const int integer){
     std::cout << "Int constructor is called" << std::endl;
-    this->setRawBits(integer * (1 << this->frctnl_bits));
+    this->setRawBits(integer * (1 << this->frctnlBits));
 }
 
 Fixed::Fixed(const float floatPoint){
     std::cout << "Float constructor is called" << std::endl;
-    this->setRawBits(roundf(floatPoint * (1 << this->frctnl_bits)));
+    this->setRawBits(roundf(floatPoint * (1 << this->frctnlBits)));
 }
 
 Fixed::~Fixed(){
@@ -39,11 +39,11 @@ Fixed::~Fixed(){
 }
 
 int Fixed::toInt(void) const{
-    return this->value / (1 << this->frctnl_bits);
+    return this->value / (1 << this->frctnlBits);
 }
 
 float Fixed::toFloat(void) const{
-    return float(this ->value) / (1 << this->frctnl_bits) ;
+    return float(this ->value) / (1 << this->frctnlBits) ;
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)

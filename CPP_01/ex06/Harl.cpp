@@ -9,13 +9,13 @@ void Harl::debug(void){
 
 void Harl::info(void){
     std::cout << "[ INFO ]" << std::endl;
-    std::cout << "I cannot believe adding extra bacon costs more money. ";
+    std::cout << "I cannot believe adding extra bacon costs more money. " << std::endl;
     std::cout << "You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
 }
 
 void Harl::warning(void){
     std::cout << "[ WARNING ]" << std::endl;
-    std::cout << "I think I deserve to have some extra bacon for free. ";
+    std::cout << "I think I deserve to have some extra bacon for free. " << std::endl;
     std::cout << "I’ve been coming for years, whereas you started working here just last month." << std::endl;
 }
 
@@ -43,13 +43,10 @@ void Harl::complain(std::string level){
     {
         case 0:
             (this->*ptrToComments[0])();
-            break;
         case 1:
             (this->*ptrToComments[1])();
-            break;
         case 2:
-            (this->*ptrToComments[2])();
-            break;    
+            (this->*ptrToComments[2])();    
         case 3:
             (this->*ptrToComments[3])();
             break;
