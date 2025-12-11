@@ -12,6 +12,7 @@ private:
 public:
     Form();
     ~Form();
+    Form(const Form&);
     Form(const std::string& name, bool isSigned, const int toSign, const int toExecute);
     const Form &operator=(const Form& other);
 public:
@@ -20,6 +21,7 @@ public:
     int getToExecute();
     int getToSign();
     void beSigned(Bureaucrat&);
+    void validateGrade(int);
     class GradeTooHighException:public std::exception{
         public:
             const char* what() const throw();

@@ -12,6 +12,10 @@ Bureaucrat::Bureaucrat(const std::string& name,int grade): name(name), grade(gra
         throw GradeTooLowException();
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat& oth): name(oth.name), grade(oth.grade){
+    std::cout << "Bureaucrat Copy ctr is called" << std::endl;
+}
+
 const Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other){
     std::cout << "Bureaucrat Copy assignment is called" << std::endl;
     if (this != &other)

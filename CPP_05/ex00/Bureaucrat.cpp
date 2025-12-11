@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("idk"), grade(150) {
+Bureaucrat::Bureaucrat() : name("default"), grade(150) {
     std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
@@ -12,13 +12,17 @@ Bureaucrat::Bureaucrat(const std::string& name,int grade): name(name), grade(gra
         throw GradeTooLowException();
 }
 
+
+Bureaucrat::Bureaucrat(const Bureaucrat& oth): name(oth.name), grade(oth.grade){
+    std::cout << "Bureaucrat Copy ctr is called" << std::endl;
+}
+
 const Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other){
     std::cout << "Bureaucrat Copy assignment is called" << std::endl;
     if (this != &other)
     {
         std::string* hack = const_cast<std::string*>(&name);
-        *hack = other.name; 
-        //this->name = other.name;        
+        *hack = other.name;        
         this->grade = other.grade;
     }
     return (*this);
