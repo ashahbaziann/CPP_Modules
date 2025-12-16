@@ -6,11 +6,10 @@
 
 int main()
 {
-    //std::srand(std::time(nullptr)); // seed rand for RobotomyRequestForm
 
     try {
-        Bureaucrat bob("Bob", 1);         // very high grade
-        Bureaucrat alice("Alice", 150);   // very low grade
+        Bureaucrat bob("Bob", 1);         
+        Bureaucrat alice("Alice", 150);   
 
         std::string home = "home";
         std::string bender = "bender";
@@ -24,14 +23,14 @@ int main()
         bob.signForm(robot);
         bob.signForm(pardon);
 
-        alice.signForm(shrub);   // should fail
+        alice.signForm(shrub);   
 
         std::cout << "\n--- Executing Forms ---\n";
         bob.executeForm(shrub);
         bob.executeForm(robot);
         bob.executeForm(pardon);
 
-        alice.executeForm(shrub); // should fail
+        alice.executeForm(shrub); 
         std::cout << std::endl;
 
     } catch (std::exception &e) {

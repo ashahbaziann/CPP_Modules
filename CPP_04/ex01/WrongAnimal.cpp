@@ -20,6 +20,11 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal& other){
     return (*this);
 }
 
+void WrongAnimal::setType(std::string type)
+{
+    this->type = type;
+}
+
 std::string WrongAnimal::getType() const{
     return (this->type);
 }

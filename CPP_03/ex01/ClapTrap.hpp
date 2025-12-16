@@ -6,7 +6,7 @@
 class ClapTrap{
 protected:
     std::string name;
-    int hitPoints;//health of claptrap
+    int hitPoints;
     int energyPoints;
     int attackDamage;
 public:

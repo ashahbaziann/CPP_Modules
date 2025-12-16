@@ -5,7 +5,7 @@ ClapTrap::ClapTrap(): name("Default"), hitPoints(10), energyPoints(10), attackDa
 }
 
 ClapTrap::ClapTrap(const std::string& name): name(name),hitPoints(10), energyPoints(10), attackDamage(0){
-    std::cout << "ClapTrap parametric constructor is called called" << std::endl;
+    std::cout << "ClapTrap parametric constructor is called" << std::endl;
 }
 
 std::string const ClapTrap::getName() const{

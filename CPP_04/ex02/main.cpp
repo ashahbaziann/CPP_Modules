@@ -4,8 +4,7 @@
 
 int main()
 {
-
-    Animal* animals[4];
+    Animal **animals = new Animal *[4];
     for(int i = 0;i < 2; i++)
         animals[i] = new Dog;
     for(int i = 2;i < 4; i++)
@@ -14,5 +13,6 @@ int main()
         animals[i]->makeSound();                     
     for(int i = 0;i < 4; i++)
         delete animals[i];
+    delete[] animals;
     return 0;
 }
