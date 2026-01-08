@@ -32,7 +32,7 @@ public:
     BitcoinExchange(const BitcoinExchange&);
     BitcoinExchange &operator=(const BitcoinExchange&);
     ~BitcoinExchange();
-    ///void processData(const std::string&);
+	
     void exchange(std::string&);
 private:
     std::string trim(const std::string&);
